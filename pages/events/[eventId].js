@@ -1,11 +1,11 @@
-import { useRouter } from "next/router";
 import { getEventById, getFeaturedEvents } from "../../helpers/api-utils";
 import EventSummary from "../../components/event-detail/event-summary";
 import EventLogistics from "../../components/event-detail/event-logistics";
 import EventContent from "../../components/event-detail/event-content";
+import Head from "next/head";
 
 const EventDetailPage = (props) => {
-  const router = useRouter();
+  // const router = useRouter();
 
   // // gives us access to the value from the URL
   // const eventId = router.query.eventId;
@@ -26,6 +26,10 @@ const EventDetailPage = (props) => {
 
   return (
     <>
+      <Head>
+        <title>{event.title}</title>
+        <meta name="description" content="find events" />
+      </Head>
       <EventSummary title={title} />
       <EventLogistics
         date={date}
